@@ -10,7 +10,7 @@ impl Solution {
                 None => {
                     l1_end = true;
                     0
-                }
+                } 
                 Some(node) =>{
                     l1 = node.next;
                     node.val
