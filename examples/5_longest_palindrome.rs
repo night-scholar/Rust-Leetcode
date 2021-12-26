@@ -1,38 +1,25 @@
+// 1.先向后找到相同的字符串，标记首尾
+// 2.首尾前后移动，判断字符串是否相同，得出长度和开始位置，与最大长度比较
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
-        let seq: Vec<char> = s.chars().collect();
+        let seq:Vec<char> = s.chars().collect();
         let len = seq.len();
-        if len < 1 {
-            return s;
+        let (mut maxlen,mut begin,mut index) = (0,0,0);
+        while index < len{
+            let (mut start,mut end) = (index,index);
+            while end < len-1&&seq[end] == seq[end+1]{
+                end += 1;
+            }
+            while end < len-1 && start > 0 && seq[end+1] == seq[start-1]{
+                end += 1;
+                start -= 1;
+            }
+            if end-start+1 > maxlen{
+                maxlen = end-start+1;
+                begin = start;
+            }
+            index += 1;
         }
-        let (mut idx, mut curr_len, mut curr_start, mut curr_end) = (0, 0, 0, 0);
-
-        while idx < len {
-            let (mut i, mut j) = (idx, idx);
-            let ch = seq[idx];
-
-            while i > 0 && seq[i - 1] == ch {
-                i -= 1
-            }
-            while j < len - 1 && seq[j + 1] == ch {
-                j += 1
-            }
-            idx = j + 1;
-            while i > 0 && j < len - 1 && seq[i - 1] == seq[j + 1] {
-                i -= 1;
-                j += 1;
-            }
-            let max_len = j - i + 1;
-            if max_len > curr_len {
-                curr_len = max_len;
-                curr_start = i;
-                curr_end = j;
-            }
-            if max_len >= len - 1 {
-                break;
-            }
-        }
-
-        s[curr_start..curr_end + 1].to_owned()
+        s[begin..begin+maxlen].to_owned()
     }
 }
