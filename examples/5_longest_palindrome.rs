@@ -6,10 +6,11 @@ impl Solution {
             return s;
         }
         let (mut idx, mut curr_len, mut curr_start, mut curr_end) = (0, 0, 0, 0);
+
         while idx < len {
             let (mut i, mut j) = (idx, idx);
             let ch = seq[idx];
-            // handle same char
+
             while i > 0 && seq[i - 1] == ch {
                 i -= 1
             }
