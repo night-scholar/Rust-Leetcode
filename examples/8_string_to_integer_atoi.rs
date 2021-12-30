@@ -22,7 +22,7 @@ impl Solution {
             seq = seq[1..].to_vec();
         }else if seq[0] == '+'{
             seq = seq[1..].to_vec();
-        }
+        } 
         len = seq.len();
         n = 0;
         let mut res = 0 as i64;
