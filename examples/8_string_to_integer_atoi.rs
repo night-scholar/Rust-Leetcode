@@ -11,7 +11,7 @@ impl Solution {
             return 0 as i32;
         }
         while n < len&&seq[n] == ' '{
-            n +=1;
+            n +=1; 
         }
         seq = seq[n..].to_vec();
         if seq.len() == 0{
