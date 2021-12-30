@@ -15,7 +15,7 @@ impl Solution {
         }
         seq = seq[n..].to_vec();
         if seq.len() == 0{
-            return 0 as i32;
+            return 0 as i32; 
         }
         if seq[0] == '-'{
             abs = -1;
