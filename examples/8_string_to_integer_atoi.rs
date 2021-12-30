@@ -1,7 +1,7 @@
 impl Solution {
     pub fn my_atoi(s: String) -> i32 {
         let mut seq:Vec<char> = s.chars().collect();
-        let mut len = seq.len();
+        let mut len = seq.len();  
         let mut n = 0;
         let mut abs = 1 as i64;
         let base :i64 = 2;
